@@ -8,7 +8,12 @@ const cors = require("cors");
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
-app.use(cors());
+app.use(cors({
+  origin: "gamephaserjs-production.up.railway.app",  // Replace "*" with your frontend URL for better security
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"]
+}));
+
 app.use(express.static("dist"));
 
 const getRndInteger = (min, max) =>
