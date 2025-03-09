@@ -94,6 +94,6 @@ io.on("connect", (socket) => {
 app.get("/health", (req, res) => res.send(`${process.env.NODE_ENV}`));
 
 // Expose server on 5000
-server.listen(process.env.PORT || 5000, () =>
+server.listen('gamephaserjs-production.up.railway.app', () =>
   console.log('Server has started.')
 );
