@@ -16,7 +16,7 @@ class PlayGame extends Phaser.Scene {
     if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
       this.ENDPOINT = "localhost:5000/";
     } else {
-      this.ENDPOINT = "https://phaser-mp-app-a56a58a9a832.herokuapp.com/";
+      this.ENDPOINT = "localhost:5000/";
     }
     console.log(this.ENDPOINT);
     this.name = name;

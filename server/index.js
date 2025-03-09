@@ -4,25 +4,11 @@ const express = require("express");
 const socketio = require("socket.io");
 const cors = require("cors");
 
-// init express server, socket io server, and serve static content from `dist`
+// init express server, socket io server, and serve static content from dist
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server, {
-  cors: {
-    origin: "https://gamephaserjs-production.up.railway.app",
-    methods: ["GET", "POST"],
-    credentials: true
-  }
-});
-
-app.use(cors({
-  origin: "https://gamephaserjs-production.up.railway.app", // Set this to your frontend URL
-  methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type"],
-  credentials: true
-}));
-
-
+const io = socketio(server);
+app.use(cors());
 app.use(express.static("dist"));
 
 const getRndInteger = (min, max) =>
@@ -109,5 +95,5 @@ app.get("/health", (req, res) => res.send(`${process.env.NODE_ENV}`));
 
 // Expose server on 5000
 server.listen(process.env.PORT || 5000, () =>
-  console.log(`Server has started.`)
+  console.log('Server has started.')
 );
