@@ -7,12 +7,21 @@ const cors = require("cors");
 // init express server, socket io server, and serve static content from `dist`
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server);
+const io = socketio(server, {
+  cors: {
+    origin: "https://gamephaserjs-production.up.railway.app",
+    methods: ["GET", "POST"],
+    credentials: true
+  }
+});
+
 app.use(cors({
-  origin: "gamephaserjs-production.up.railway.app",  // Replace "*" with your frontend URL for better security
+  origin: "https://gamephaserjs-production.up.railway.app", // Set this to your frontend URL
   methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type"]
+  allowedHeaders: ["Content-Type"],
+  credentials: true
 }));
+
 
 app.use(express.static("dist"));
 
