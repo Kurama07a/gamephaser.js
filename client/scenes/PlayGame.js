@@ -13,9 +13,9 @@ import io from "socket.io-client";
 class PlayGame extends Phaser.Scene {
   init(name) {
     if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
-      this.ENDPOINT = "gamephaserjs-production.up.railway.app";
+      this.ENDPOINT = "localhost:8080";
     } else {
-      this.ENDPOINT = "gamephaserjs-production.up.railway.app";
+      this.ENDPOINT = "localhost:8080";
     }
     this.name = name;
     this.keys = this.input.keyboard.createCursorKeys();
