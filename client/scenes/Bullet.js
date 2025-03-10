@@ -1,9 +1,6 @@
-/*
-A bullet class to represent the bullet sprite and its main functionalities 
-*/
-
 import Phaser from "phaser";
 import Constants from "../constants";
+
 export default class Bullet extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, x, y) {
     super(scene, x, y, "bullet");
@@ -31,13 +28,7 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
 
   preUpdate(time, delta) {
     super.preUpdate(time, delta);
-
-    if (
-      this.y <= -10 ||
-      this.y >= Constants.HEIGHT + 10 ||
-      this.x <= -10 ||
-      this.x >= Constants.WIDTH + 10
-    ) {
+    if (this.y <= -10 || this.y >= Constants.HEIGHT + 10 || this.x <= -10 || this.x >= Constants.WIDTH + 10) {
       this.set_bullet(false);
     }
   }

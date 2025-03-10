@@ -1,28 +1,17 @@
 import Phaser from "phaser";
 import Constants from "../constants";
-export default class Welcome extends Phaser.Scene {
 
-    /*
-    Register allowed keys
-    */
+export default class Welcome extends Phaser.Scene {
   init() {
     var alpha = "abcdefghijklmnopqrstuvwxyz".split("").join(",");
     this.keys = this.input.keyboard.addKeys(alpha);
-    this.backspace = this.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.BACKSPACE
-    );
-    this.enter = this.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.ENTER
-    );
+    this.backspace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.BACKSPACE);
+    this.enter = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
   }
 
-
-    /*
-    Render text
-    */
   create() {
     this.welcome_text = `Welcome, enter your name\n\n`;
-    this.text = this.add.text(Constants.WIDTH/2, Constants.HEIGHT/2, this.welcome_text, {
+    this.text = this.add.text(Constants.WIDTH / 2, Constants.HEIGHT / 2, this.welcome_text, {
       color: "#00ff00",
       align: "center",
       fontSize: "30px",
@@ -31,9 +20,6 @@ export default class Welcome extends Phaser.Scene {
     this.name = "";
   }
 
-    /*
-    Poll for keyboard keys to display name, and for enter to go to game scene.
-    */
   update() {
     for (const key of Object.keys(this.keys)) {
       if (Phaser.Input.Keyboard.JustDown(this.keys[key])) {
