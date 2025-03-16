@@ -1,5 +1,11 @@
 export default class Constants {
-  static WIDTH = 1440;
-  static HEIGHT = 900;
+  static get WIDTH() {
+    return window.innerWidth;
+  }
+
+  static get HEIGHT() {
+    return window.innerHeight;
+  }
+
   static POINTS_TO_WIN = 100;
 }
