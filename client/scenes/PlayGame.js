@@ -16,7 +16,7 @@ class PlayGame extends Phaser.Scene {
   /* Initialize client connection to socket server*/
   init(name) {
     if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
-      this.ENDPOINT = "https://gamephaserjs-production.up.railway.app:8080";
+      this.ENDPOINT = "localhost:5000";
     } else {
       this.ENDPOINT = "https://gamephaserjs-production.up.railway.app:8080";
     }
