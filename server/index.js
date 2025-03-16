@@ -8,7 +8,11 @@ const cors = require("cors");
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
-app.use(cors());
+const corsOptions = {
+  origin: "*",
+  methods: ["GET", "POST"],
+};
+app.use(cors(corsOptions));
 app.use(express.static("dist"));
 
 const getRndInteger = (min, max) =>
