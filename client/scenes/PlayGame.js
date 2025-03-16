@@ -18,7 +18,7 @@ class PlayGame extends Phaser.Scene {
     if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
       this.ENDPOINT = "localhost:5000";
     } else {
-      this.ENDPOINT = "https://gamephaserjs-production.up.railway.app:8080";
+      this.ENDPOINT = "https://gamephaserjs-production.up.railway.app:5000";
     }
     console.log(this.ENDPOINT);
     this.name = name;
