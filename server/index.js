@@ -94,6 +94,6 @@ io.on("connect", (socket) => {
 app.get("/health", (req, res) => res.send(`${process.env.NODE_ENV}`));
 
 // Expose server on 5000
-server.listen(5000, "66.33.22.1"  , () => {
+server.listen(5000, "0.0.0.0", () => {
   console.log("Server running on port 5000");
 });
